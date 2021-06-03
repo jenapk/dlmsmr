@@ -27,7 +27,7 @@ uint8_t fg_appFnIndex;
 uint16_t fg_rxIndex;	//to receive rx bytes
 //jena end
 
-unsigned char SendBuffer[] ={0x7e,0xA0,0x07,0x03,0x41,0x93,0x5A,0x64,0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0xFF,0xAA,0xBB,0xFE,0x03,0x03,0x03,0x03,0xFF,0xAA,0xBB,0xFE,0x05,0x05,0x05,0x05,0xFF,0xAA,0xBB, 0xFE,0x0B,0x0B,0x0B,0x0B,0xFF,0xFE,0x06,0x06,0x06,0x06,0xFF,0xAA,0xBB,0xFE,0x07,0x07,0x07,0x07,0xFF,0xAA,0xBB,0xFE,0x0c,0x0c,0x0c,0x0c,0xff,0xAA,0xBB,0xFE,0x0F,0x0F,0x0F,0x0F,0xFF,0xFE,0x13,0x13,0x13,0x13,0xFF,0xFE,0x14,0x14,0x14,0x14,0xFF,0xFE,0x11,0x11,0x11,0x11,0xFF,0xFE,0x12,0x12,0x12,0x12,0xFF,0xFE,0x19,0x19,0x19,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF};
+unsigned char g_txBuffer[] ={0x7e,0xA0,0x07,0x03,0x41,0x93,0x5A,0x64,0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0xFF,0xAA,0xBB,0xFE,0x03,0x03,0x03,0x03,0xFF,0xAA,0xBB,0xFE,0x05,0x05,0x05,0x05,0xFF,0xAA,0xBB, 0xFE,0x0B,0x0B,0x0B,0x0B,0xFF,0xFE,0x06,0x06,0x06,0x06,0xFF,0xAA,0xBB,0xFE,0x07,0x07,0x07,0x07,0xFF,0xAA,0xBB,0xFE,0x0c,0x0c,0x0c,0x0c,0xff,0xAA,0xBB,0xFE,0x0F,0x0F,0x0F,0x0F,0xFF,0xFE,0x13,0x13,0x13,0x13,0xFF,0xFE,0x14,0x14,0x14,0x14,0xFF,0xFE,0x11,0x11,0x11,0x11,0xFF,0xFE,0x12,0x12,0x12,0x12,0xFF,0xFE,0x19,0x19,0x19,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF};
 unsigned char g_rxBuffer[] ={0x7e,0xA0,0x07,0x03,0x41,0x93,0x5A,0x64,0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0xFF,0xAA,0xBB,0xFE,0x03,0x03,0x03,0x03,0xFF,0xAA,0xBB,0xFE,0x05,0x05,0x05,0x05,0xFF,0xAA,0xBB, 0xFE,0x0B,0x0B,0x0B,0x0B,0xFF,0xFE,0x06,0x06,0x06,0x06,0xFF,0xAA,0xBB,0xFE,0x07,0x07,0x07,0x07,0xFF,0xAA,0xBB,0xFE,0x0c,0x0c,0x0c,0x0c,0xff,0xAA,0xBB,0xFE,0x0F,0x0F,0x0F,0x0F,0xFF,0xFE,0x13,0x13,0x13,0x13,0xFF,0xFE,0x14,0x14,0x14,0x14,0xFF,0xFE,0x11,0x11,0x11,0x11,0xFF,0xFE,0x12,0x12,0x12,0x12,0xFF,0xFE,0x19,0x19,0x19,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF};
 unsigned char llssecret[16];
 unsigned char rrr_c=0, rrr_c1=0, rrr_s=0, sss_c=0, sss_c1=0, sss_s=0;
@@ -76,8 +76,6 @@ void kt_appProcess(void)
 
 void ErrPrt(int x, int y, char *str1)
 {
-	//clrscr();
-	//gotoxy(x,y);
 	printf("%s", str1);
 }
 
@@ -551,9 +549,9 @@ int ReadInstantData(void)
 
 uint16_t pppfcs16(uint16_t fcs, uint8_t *cp, int length)
 {
-	//jena : need to relook the function, all 3 lines are commented
-	//while(length--)
-	//	fcs = (fcs >> 8) ^ fcstaintFlgb[(fcs ^ *cp++) & 0xff];
+	while(length--)
+		fcs = (fcs >> 8) ^ fcstab[(fcs ^ *cp++) & 0xff];
+
 	return fcs;
 }
 
@@ -582,21 +580,18 @@ int fcs(unsigned char *cp, int length, int flag)
 
 int SNRM(void)
 {
-	//unsigned long time2 = 0;
 	ClearPacket();
-	printf("|");
-	SendBuffer[0] = 0x7e;
-	SendBuffer[1] = 0xa0;
-	SendBuffer[2] = 0x07;
-	SendBuffer[3] = 0x03;
-	SendBuffer[4] = 0x61;
-	SendBuffer[5] = 0x93;
-	SendBuffer[6] = 0x69;
-	SendBuffer[7] = 0x47;
-	SendBuffer[8] = 0x7e;
-	//jena fcs(SendBuffer + 1, 5, 1);
-	kt_libUART_SendData(g_portNo, SendBuffer, 9);
-	//delay(1000);
+	g_txBuffer[0] = 0x7e;
+	g_txBuffer[1] = 0xa0;
+	g_txBuffer[2] = 0x07;
+	g_txBuffer[3] = 0x03;
+	g_txBuffer[4] = 0x61;
+	g_txBuffer[5] = 0x93;
+	g_txBuffer[6] = 0x00;
+	g_txBuffer[7] = 0x00;
+	g_txBuffer[8] = 0x7e;
+	fcs(g_txBuffer + 1, 5, 1);
+	kt_libUART_SendData(g_portNo, g_txBuffer, 9);
 	g_intFlg = 0;
 	//Read(g_rxBuffer);
 /*	for(int i=0;i<g_rxBuffer[2]+2;i++)
@@ -615,80 +610,80 @@ int AARQ(void)
 	unsigned long time2 = 0;
 	ClearPacket();
 	printf("|");
-	SendBuffer[c++] = 0x7E;
-	SendBuffer[c++] = 0xA0;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x03;
-	SendBuffer[c++] = 0x41;
-	SendBuffer[c++] = 0x10;
-	SendBuffer[c++] = 0x00;	//FCS
-	SendBuffer[c++] = 0x00;	//FCS
-	SendBuffer[c++] = 0xE6;	//LLC Bytes
-	SendBuffer[c++] = 0xE6;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x60; //AARQ
-	SendBuffer[c++] = 0x11;	// Assign Below
-	SendBuffer[c++] = 0xA1; //Application Context Name Tag
-	SendBuffer[c++] = 0x09;
-	SendBuffer[c++] = 0x06;
-	SendBuffer[c++] = 0x07;
-	SendBuffer[c++] = 0x60;
-	SendBuffer[c++] = 0x85;
-	SendBuffer[c++] = 0x74;
-	SendBuffer[c++] = 0x05;
-	SendBuffer[c++] = 0x08;
-	SendBuffer[c++] = 0x01;
-	SendBuffer[c++] = 0x01;
+	g_txBuffer[c++] = 0x7E;
+	g_txBuffer[c++] = 0xA0;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x03;
+	g_txBuffer[c++] = 0x41;
+	g_txBuffer[c++] = 0x10;
+	g_txBuffer[c++] = 0x00;	//FCS
+	g_txBuffer[c++] = 0x00;	//FCS
+	g_txBuffer[c++] = 0xE6;	//LLC Bytes
+	g_txBuffer[c++] = 0xE6;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x60; //AARQ
+	g_txBuffer[c++] = 0x11;	// Assign Below
+	g_txBuffer[c++] = 0xA1; //Application Context Name Tag
+	g_txBuffer[c++] = 0x09;
+	g_txBuffer[c++] = 0x06;
+	g_txBuffer[c++] = 0x07;
+	g_txBuffer[c++] = 0x60;
+	g_txBuffer[c++] = 0x85;
+	g_txBuffer[c++] = 0x74;
+	g_txBuffer[c++] = 0x05;
+	g_txBuffer[c++] = 0x08;
+	g_txBuffer[c++] = 0x01;
+	g_txBuffer[c++] = 0x01;
 
-	SendBuffer[c++] = 0x8A;
-	SendBuffer[c++] = 0x02;
-	SendBuffer[c++] = 0x07;
-	SendBuffer[c++] = 0x80;
-	SendBuffer[c++] = 0x8B;
-	SendBuffer[c++] = 0x07;
-	SendBuffer[c++] = 0x60;
-	SendBuffer[c++] = 0x85;
-	SendBuffer[c++] = 0x74;
-	SendBuffer[c++] = 0x05;
-	SendBuffer[c++] = 0x08;
-	SendBuffer[c++] = 0x02;
-	SendBuffer[c++] = 0x01;
-	SendBuffer[c++] = 0xAC;
-	SendBuffer[c++] = strlen((const char*) llssecret) + 2;
-	SendBuffer[c++] = 0x80;
-	SendBuffer[c++] = strlen((const char*) llssecret);
+	g_txBuffer[c++] = 0x8A;
+	g_txBuffer[c++] = 0x02;
+	g_txBuffer[c++] = 0x07;
+	g_txBuffer[c++] = 0x80;
+	g_txBuffer[c++] = 0x8B;
+	g_txBuffer[c++] = 0x07;
+	g_txBuffer[c++] = 0x60;
+	g_txBuffer[c++] = 0x85;
+	g_txBuffer[c++] = 0x74;
+	g_txBuffer[c++] = 0x05;
+	g_txBuffer[c++] = 0x08;
+	g_txBuffer[c++] = 0x02;
+	g_txBuffer[c++] = 0x01;
+	g_txBuffer[c++] = 0xAC;
+	g_txBuffer[c++] = strlen((const char*) llssecret) + 2;
+	g_txBuffer[c++] = 0x80;
+	g_txBuffer[c++] = strlen((const char*) llssecret);
 
 	for (int x = 0; x < strlen((const char*) llssecret); x++)
-		SendBuffer[c++] = llssecret[x];
+		g_txBuffer[c++] = llssecret[x];
 
-	SendBuffer[c++] = 0xBE;
-	SendBuffer[c++] = 0x10;
-	SendBuffer[c++] = 0x04;
-	SendBuffer[c++] = 0x0E;
-	SendBuffer[c++] = 0x01;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x06;
-	SendBuffer[c++] = 0x5F;
-	SendBuffer[c++] = 0x1F;
-	SendBuffer[c++] = 0x04;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x00;
-	SendBuffer[c++] = 0x18;
-	SendBuffer[c++] = 0x1D;
-	SendBuffer[c++] = 0xFF;
-	SendBuffer[c++] = 0xFF;
+	g_txBuffer[c++] = 0xBE;
+	g_txBuffer[c++] = 0x10;
+	g_txBuffer[c++] = 0x04;
+	g_txBuffer[c++] = 0x0E;
+	g_txBuffer[c++] = 0x01;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x06;
+	g_txBuffer[c++] = 0x5F;
+	g_txBuffer[c++] = 0x1F;
+	g_txBuffer[c++] = 0x04;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x00;
+	g_txBuffer[c++] = 0x18;
+	g_txBuffer[c++] = 0x1D;
+	g_txBuffer[c++] = 0xFF;
+	g_txBuffer[c++] = 0xFF;
 
-	SendBuffer[2] = c+1;
-	SendBuffer[12] = c-13;
-	SendBuffer[c+2] = 0x7E;
+	g_txBuffer[2] = c+1;
+	g_txBuffer[12] = c-13;
+	g_txBuffer[c+2] = 0x7E;
 
-	fcs(SendBuffer+1, 5, 1);
-	fcs(SendBuffer+1,c-1, 1);
+	fcs(g_txBuffer+1, 5, 1);
+	fcs(g_txBuffer+1,c-1, 1);
 
 	//SendPkt(c+3);
-	kt_libUART_SendData(g_portNo, SendBuffer, c+3);
+	kt_libUART_SendData(g_portNo, g_txBuffer, c+3);
 
 	delay(500);
 
@@ -715,18 +710,18 @@ int DISC(void)
 {
 	unsigned long time2 = 0;
 	ClearPacket();
-	SendBuffer[0] = 0x7e;
-	SendBuffer[1] = 0xa0;
-	SendBuffer[2] = 0x07;
-	SendBuffer[3] = 0x03;
-	SendBuffer[4] = 0x41;
-	SendBuffer[5] = 0x53;
-	SendBuffer[6] = 0x00;
-	SendBuffer[7] = 0x00;
-	SendBuffer[8] = 0x7e;
-	fcs(SendBuffer+1, 5, 1);
+	g_txBuffer[0] = 0x7e;
+	g_txBuffer[1] = 0xa0;
+	g_txBuffer[2] = 0x07;
+	g_txBuffer[3] = 0x03;
+	g_txBuffer[4] = 0x41;
+	g_txBuffer[5] = 0x53;
+	g_txBuffer[6] = 0x00;
+	g_txBuffer[7] = 0x00;
+	g_txBuffer[8] = 0x7e;
+	fcs(g_txBuffer+1, 5, 1);
 	//SendPkt(9);
-	kt_libUART_SendData(g_portNo, SendBuffer, 9);
+	kt_libUART_SendData(g_portNo, g_txBuffer, 9);
 
 	delay(500);
 
@@ -788,109 +783,109 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 	//}
 	//printf("|");PGbar++;
 	
-	SendBuffer[0] = 0x7E;
-	SendBuffer[1] = 0xA0;
-	SendBuffer[3] = 0x03;
-	SendBuffer[4] = 0x41;
+	g_txBuffer[0] = 0x7E;
+	g_txBuffer[1] = 0xA0;
+	g_txBuffer[3] = 0x03;
+	g_txBuffer[4] = 0x41;
 	ret_lsh = rrr_s << 5;
-	SendBuffer[5] = ret_lsh | 0x10;
+	g_txBuffer[5] = ret_lsh | 0x10;
 	ret_lsh = sss_s << 1;
-	SendBuffer[5] = ret_lsh | SendBuffer[5];
-	SendBuffer[6] = 0x00;
-	SendBuffer[7] = 0x00;
-	SendBuffer[8] = 0xE6;
-	SendBuffer[9] = 0xE6;
-	SendBuffer[10] = 0x00;
-	SendBuffer[11] = 0xC0;
-	SendBuffer[12] = 0x01;
-	SendBuffer[13] = 0x81;
-	SendBuffer[14] = 0x00;
-	SendBuffer[15] = classID; 
-	SendBuffer[16] = Obis_a;
-	SendBuffer[17] = Obis_b;
-	SendBuffer[18] = Obis_c;
-	SendBuffer[19] = Obis_d;
-	SendBuffer[20] = Obis_e;
-	SendBuffer[21] = Obis_f;
-	SendBuffer[22] = Attr;
+	g_txBuffer[5] = ret_lsh | g_txBuffer[5];
+	g_txBuffer[6] = 0x00;
+	g_txBuffer[7] = 0x00;
+	g_txBuffer[8] = 0xE6;
+	g_txBuffer[9] = 0xE6;
+	g_txBuffer[10] = 0x00;
+	g_txBuffer[11] = 0xC0;
+	g_txBuffer[12] = 0x01;
+	g_txBuffer[13] = 0x81;
+	g_txBuffer[14] = 0x00;
+	g_txBuffer[15] = classID;
+	g_txBuffer[16] = Obis_a;
+	g_txBuffer[17] = Obis_b;
+	g_txBuffer[18] = Obis_c;
+	g_txBuffer[19] = Obis_d;
+	g_txBuffer[20] = Obis_e;
+	g_txBuffer[21] = Obis_f;
+	g_txBuffer[22] = Attr;
 	
 	if(LoadSurveyFlag == 0)
 	{
-		SendBuffer[23] = 0x00;
-		SendBuffer[2] = 0x19;
-		SendBuffer[26] = 0x7e;
-		fcs(SendBuffer+1, 5, 1);
-		fcs(SendBuffer+1, 23, 1);
+		g_txBuffer[23] = 0x00;
+		g_txBuffer[2] = 0x19;
+		g_txBuffer[26] = 0x7e;
+		fcs(g_txBuffer+1, 5, 1);
+		fcs(g_txBuffer+1, 23, 1);
 		//SendPkt(27);
-		kt_libUART_SendData(g_portNo, SendBuffer, 27);
+		kt_libUART_SendData(g_portNo, g_txBuffer, 27);
 	}
 	else
 	{
 		LoadSurveyFlag = 0;
-		SendBuffer[23] = 0x01;
-		SendBuffer[24] = 0x01;
-		SendBuffer[25] = 0x02;
-		SendBuffer[26] = 0x04;
-		SendBuffer[27] = 0x02;
-		SendBuffer[28] = 0x04;
-		SendBuffer[29] = 0x12;
-		SendBuffer[30] = 0x00;
-		SendBuffer[31] = 0x08;
-		SendBuffer[32] = 0x09;
-		SendBuffer[33] = 0x06;
-		SendBuffer[34] = 0x00;
-		SendBuffer[35] = 0x00;
-		SendBuffer[36] = 0x01;
-		SendBuffer[37] = 0x00;
-		SendBuffer[38] = 0x00;
-		SendBuffer[39] = 0xFF;
-		SendBuffer[40] = 0x0F;
-		SendBuffer[41] = 0x02;
-		SendBuffer[42] = 0x12;
-		SendBuffer[43] = 0x00;
-		SendBuffer[44] = 0x00;
+		g_txBuffer[23] = 0x01;
+		g_txBuffer[24] = 0x01;
+		g_txBuffer[25] = 0x02;
+		g_txBuffer[26] = 0x04;
+		g_txBuffer[27] = 0x02;
+		g_txBuffer[28] = 0x04;
+		g_txBuffer[29] = 0x12;
+		g_txBuffer[30] = 0x00;
+		g_txBuffer[31] = 0x08;
+		g_txBuffer[32] = 0x09;
+		g_txBuffer[33] = 0x06;
+		g_txBuffer[34] = 0x00;
+		g_txBuffer[35] = 0x00;
+		g_txBuffer[36] = 0x01;
+		g_txBuffer[37] = 0x00;
+		g_txBuffer[38] = 0x00;
+		g_txBuffer[39] = 0xFF;
+		g_txBuffer[40] = 0x0F;
+		g_txBuffer[41] = 0x02;
+		g_txBuffer[42] = 0x12;
+		g_txBuffer[43] = 0x00;
+		g_txBuffer[44] = 0x00;
 
-		SendBuffer[45] = 0x09;
-		SendBuffer[46] = 0x0C;
-		SendBuffer[47] = YYYY1/256;
-		SendBuffer[48] = (unsigned char) YYYY1%256;
-		SendBuffer[49] = (unsigned char) MM1;
-		SendBuffer[50] = (unsigned char) DD1;
-		SendBuffer[51] = 0xFF;
-		SendBuffer[52] = 0x00;
-		SendBuffer[53] = 0x00;
-		SendBuffer[54] = 0x00;
-		SendBuffer[55] = 0x00;
-		SendBuffer[56] = 0xFF;
-		SendBuffer[57] = 0xFF;
-		SendBuffer[58] = 0xFF;
+		g_txBuffer[45] = 0x09;
+		g_txBuffer[46] = 0x0C;
+		g_txBuffer[47] = YYYY1/256;
+		g_txBuffer[48] = (unsigned char) YYYY1%256;
+		g_txBuffer[49] = (unsigned char) MM1;
+		g_txBuffer[50] = (unsigned char) DD1;
+		g_txBuffer[51] = 0xFF;
+		g_txBuffer[52] = 0x00;
+		g_txBuffer[53] = 0x00;
+		g_txBuffer[54] = 0x00;
+		g_txBuffer[55] = 0x00;
+		g_txBuffer[56] = 0xFF;
+		g_txBuffer[57] = 0xFF;
+		g_txBuffer[58] = 0xFF;
 
-		SendBuffer[59] = 0x09;
-		SendBuffer[60] = 0x0C;
-		SendBuffer[61] = (YYYY2/256);
-		SendBuffer[62] = (unsigned char) (YYYY2%256);
-		SendBuffer[63] = (unsigned char) MM2;
-		SendBuffer[64] = (unsigned char) DD2;
-		SendBuffer[65] = 0xFF;
-		SendBuffer[66] = 0x00;
-		SendBuffer[67] = 0x00;
-		SendBuffer[68] = 0x00;
-		SendBuffer[69] = 0x00;
-		SendBuffer[70] = 0xFF;
-		SendBuffer[71] = 0xFF;
-		SendBuffer[72] = 0xFF;
+		g_txBuffer[59] = 0x09;
+		g_txBuffer[60] = 0x0C;
+		g_txBuffer[61] = (YYYY2/256);
+		g_txBuffer[62] = (unsigned char) (YYYY2%256);
+		g_txBuffer[63] = (unsigned char) MM2;
+		g_txBuffer[64] = (unsigned char) DD2;
+		g_txBuffer[65] = 0xFF;
+		g_txBuffer[66] = 0x00;
+		g_txBuffer[67] = 0x00;
+		g_txBuffer[68] = 0x00;
+		g_txBuffer[69] = 0x00;
+		g_txBuffer[70] = 0xFF;
+		g_txBuffer[71] = 0xFF;
+		g_txBuffer[72] = 0xFF;
 
-		SendBuffer[73] = 0x01;
-		SendBuffer[74] = 0x00;
-		SendBuffer[75] = 0x00;
-		SendBuffer[76] = 0x00;
-		SendBuffer[77] = 0x7E;
+		g_txBuffer[73] = 0x01;
+		g_txBuffer[74] = 0x00;
+		g_txBuffer[75] = 0x00;
+		g_txBuffer[76] = 0x00;
+		g_txBuffer[77] = 0x7E;
 
-		SendBuffer[2] = 0x4C;
-		fcs(SendBuffer+1, 5, 1);
-		fcs(SendBuffer+1, 74, 1);
+		g_txBuffer[2] = 0x4C;
+		fcs(g_txBuffer+1, 5, 1);
+		fcs(g_txBuffer+1, 74, 1);
 		//SendPkt(78);
-		kt_libUART_SendData(g_portNo, SendBuffer, 78);
+		kt_libUART_SendData(g_portNo, g_txBuffer, 78);
 	}
 
 	delay(500);
@@ -908,8 +903,8 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 
 	fprintf(fp,"\n");
 	for(counter=16;counter<=21;counter++)
-		fprintf(fp,"%02X",SendBuffer[counter]);
-	fprintf(fp," %02X ",SendBuffer[22]);
+		fprintf(fp,"%02X",g_txBuffer[counter]);
+	fprintf(fp," %02X ",g_txBuffer[22]);
 
 	//jena FrameType(g_rxBuffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
 
@@ -942,19 +937,19 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 	{
 		ClearPacket();
 
-		SendBuffer[0] = 0x7E;
-		SendBuffer[1] = 0xA0;
-		SendBuffer[2] = 0x07;
-		SendBuffer[3] = 0x03;
-		SendBuffer[4] = 0x41;
+		g_txBuffer[0] = 0x7E;
+		g_txBuffer[1] = 0xA0;
+		g_txBuffer[2] = 0x07;
+		g_txBuffer[3] = 0x03;
+		g_txBuffer[4] = 0x41;
 		ret_lsh = rrr_s << 5;
-		SendBuffer[5] = ret_lsh | 0x10;
-		SendBuffer[5] = SendBuffer[5] | 0x01;
-		fcs(SendBuffer+1, 5, 1);
-		SendBuffer[8] = 0x7E;
+		g_txBuffer[5] = ret_lsh | 0x10;
+		g_txBuffer[5] = g_txBuffer[5] | 0x01;
+		fcs(g_txBuffer+1, 5, 1);
+		g_txBuffer[8] = 0x7E;
 
 		//SendPkt(9);
-		kt_libUART_SendData(g_portNo, SendBuffer, 9);
+		kt_libUART_SendData(g_portNo, g_txBuffer, 9);
 
 		delay(500);
 		while((intFlg==0)&&(time2<68265))   //68265 //655350
@@ -989,31 +984,31 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 		moreblock = 0;
 		ClearPacket();
 	
-		SendBuffer[0] = 0x7E;
-		SendBuffer[1] = 0xA0;
-		SendBuffer[2] = 0x13;
-		SendBuffer[3] = 0x03;
-		SendBuffer[4] = 0x41;
+		g_txBuffer[0] = 0x7E;
+		g_txBuffer[1] = 0xA0;
+		g_txBuffer[2] = 0x13;
+		g_txBuffer[3] = 0x03;
+		g_txBuffer[4] = 0x41;
 		ret_lsh = rrr_s << 5;
-		SendBuffer[5] = ret_lsh | 0x10;
+		g_txBuffer[5] = ret_lsh | 0x10;
 		ret_lsh = sss_s << 1;
-		SendBuffer[5] = ret_lsh | SendBuffer[5];
-		SendBuffer[8] = 0xE6;
-		SendBuffer[9] = 0xE6;
-		SendBuffer[10] = 0x00;
-		SendBuffer[11] = 0xC0;
-		SendBuffer[12] = 0x02;
-		SendBuffer[13] = 0x81;
-		SendBuffer[14] = 0x00;
-		SendBuffer[15] = 0x00;
-		SendBuffer[16] = datablockno / 256;
-		SendBuffer[17] = datablockno % 256;
-		fcs(SendBuffer+1, 5, 1);
-		fcs(SendBuffer+1, 17, 1);
-		SendBuffer[20] = 0x7E;
+		g_txBuffer[5] = ret_lsh | g_txBuffer[5];
+		g_txBuffer[8] = 0xE6;
+		g_txBuffer[9] = 0xE6;
+		g_txBuffer[10] = 0x00;
+		g_txBuffer[11] = 0xC0;
+		g_txBuffer[12] = 0x02;
+		g_txBuffer[13] = 0x81;
+		g_txBuffer[14] = 0x00;
+		g_txBuffer[15] = 0x00;
+		g_txBuffer[16] = datablockno / 256;
+		g_txBuffer[17] = datablockno % 256;
+		fcs(g_txBuffer+1, 5, 1);
+		fcs(g_txBuffer+1, 17, 1);
+		g_txBuffer[20] = 0x7E;
 
 		//SendPkt(21);
-		kt_libUART_SendData(g_portNo, SendBuffer, 21);
+		kt_libUART_SendData(g_portNo, g_txBuffer, 21);
 
 		delay(500);
 		while((intFlg==0)&&(time2<68265))   //68265 //655350
@@ -1079,19 +1074,19 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 		{
 			ClearPacket();
 
-			SendBuffer[0] = 0x7E;
-			SendBuffer[1] = 0xA0;
-			SendBuffer[2] = 0x07;
-			SendBuffer[3] = 0x03;
-			SendBuffer[4] = 0x41;
+			g_txBuffer[0] = 0x7E;
+			g_txBuffer[1] = 0xA0;
+			g_txBuffer[2] = 0x07;
+			g_txBuffer[3] = 0x03;
+			g_txBuffer[4] = 0x41;
 			ret_lsh = rrr_s << 5;
-			SendBuffer[5] = ret_lsh | 0x10;
-			SendBuffer[5] = SendBuffer[5] | 0x01;
-			fcs(SendBuffer+1, 5, 1);
-			SendBuffer[8] = 0x7E;
+			g_txBuffer[5] = ret_lsh | 0x10;
+			g_txBuffer[5] = g_txBuffer[5] | 0x01;
+			fcs(g_txBuffer+1, 5, 1);
+			g_txBuffer[8] = 0x7E;
 
 			//SendPkt(9);
-			kt_libUART_SendData(g_portNo, SendBuffer, 9);
+			kt_libUART_SendData(g_portNo, g_txBuffer, 9);
 			delay(500);
 
 			while((intFlg==0)&&(time2<68265))   //68265 //655350
@@ -1129,7 +1124,7 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 void ClearPacket(void)
 {
 	head = tail = count = intFlg = 0;//errFlg=0;
-	memset(SendBuffer, 255, sizeof SendBuffer);
+	memset(g_txBuffer, 255, sizeof g_txBuffer);
 	memset(g_rxBuffer, 255, sizeof g_rxBuffer);
 }
 
