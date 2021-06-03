@@ -16,14 +16,23 @@ Revisions:    3.0.0  ##/##/2010 First release
 #include <ctype.h>
 #include <math.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include "functh.h"
+
 #include "kt_misc_func.h"
 #include "kt_global.h"
 #include "kt_libUART.h"
 
+pthread_t fg_thdUART;
+pthread_t fg_thdApp;
+
+uint32_t x;
 //======================================================================================
 int main(void)
+
 {
+	int l_iRetVal;
+
 	printf("\n DAKSH MRI 3.0.0\n ");
 	delay(1000);
 
@@ -34,8 +43,39 @@ int main(void)
 	g_portNo = 16;
 	kt_libUART_Open(g_portNo, 9600);
 
+	l_iRetVal = pthread_create(&fg_thdUART, NULL, kt_uartPoll, NULL);
+	if(l_iRetVal != 0)
+	{
+		printf("Thread (UART) creation failed.\n");
+		return(-1);
+	}
 
-	selData();
+	printf("Thread (UART) created \n");
 
-	printf("Execution completed.\n ");
+	l_iRetVal = pthread_create(&fg_thdApp, NULL, selData, NULL);
+	if(l_iRetVal != 0)
+	{
+		printf("Thread (App) creation failed.\n");
+		return(-1);
+	}
+
+	printf("Thread (App) created \n");
+
+
+	//join threads
+	pthread_join(fg_thdUART, NULL);
+	pthread_join(fg_thdApp, NULL);
+
+	//start data downloading
+	//selData();
+
+	//while(1)
+	//{
+	//	x++;
+	//	usleep(1000);
+	//}
+
+
+
+	printf("\nExecution completed.\n ");
 }

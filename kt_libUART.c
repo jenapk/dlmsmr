@@ -124,11 +124,26 @@ uint16_t kt_libUART_Open(uint16_t a_PortNO, uint32_t a_Baudrate)
 	return(0);
 }
 
+//uint32_t fg_count = 0;
+//======================================================================================================
+//this function called from thread (UART)
+void kt_uartPoll(void)
+{
+	while(1)
+	{
+		//fg_count++;
+		usleep(1000);
+		//printf("In thread : %d\n", fg_count);
+		kt_libUART_Poll(16);
+	}
+}
+
+
 //======================================================================================================
 uint16_t kt_libUART_Poll(uint16_t a_PortNo)
 {
 	uint16_t l_Count = 0;
-	uint8_t l_Byte = 0, l_Return = 0;
+	uint8_t l_Byte = 0, l_Return = 0, l_byteReceived = 0;
 
 	l_Return = 0x00;
 	l_Count = 0x00;
@@ -139,11 +154,18 @@ uint16_t kt_libUART_Poll(uint16_t a_PortNo)
 
 		if (l_Return)
 		{
+			printf("%02X ", l_Byte);
 			l_Count++;
-			CB_RS232Receive[a_PortNo] (l_Byte);
+			l_byteReceived = 1;
+			//jena CB_RS232Receive[a_PortNo] (l_Byte);
 		}
 
 	}while(l_Return);
+
+	if(l_byteReceived)
+	{
+		printf("\n");
+	}
 
 	return (l_Count);	//Total number of byte received
 }

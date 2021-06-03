@@ -15,6 +15,7 @@
 #include <sys/stat.h>
 #include <limits.h>
 
+void kt_uartPoll(void);	//called from thread without any argument
 
 uint16_t kt_libUART_Open(uint16_t a_PortNo, uint32_t a_Baudrate);
 uint16_t kt_libUART_Poll (uint16_t a_PortNo);

@@ -50,7 +50,6 @@ unsigned int fcstab[256] = {
 	0x7bc7, 0x6a4e, 0x58d5, 0x495c, 0x3de3, 0x2c6a, 0x1ef1, 0x0f78,
 };
 
-//jena start
 FILE *fp, *fp1;
 unsigned char LoadSurveyFlag;
 unsigned char FileName[20];
@@ -63,7 +62,7 @@ unsigned int count;
 //jena end
 
 unsigned char SendBuffer[] ={0x7e,0xA0,0x07,0x03,0x41,0x93,0x5A,0x64,0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0xFF,0xAA,0xBB,0xFE,0x03,0x03,0x03,0x03,0xFF,0xAA,0xBB,0xFE,0x05,0x05,0x05,0x05,0xFF,0xAA,0xBB, 0xFE,0x0B,0x0B,0x0B,0x0B,0xFF,0xFE,0x06,0x06,0x06,0x06,0xFF,0xAA,0xBB,0xFE,0x07,0x07,0x07,0x07,0xFF,0xAA,0xBB,0xFE,0x0c,0x0c,0x0c,0x0c,0xff,0xAA,0xBB,0xFE,0x0F,0x0F,0x0F,0x0F,0xFF,0xFE,0x13,0x13,0x13,0x13,0xFF,0xFE,0x14,0x14,0x14,0x14,0xFF,0xFE,0x11,0x11,0x11,0x11,0xFF,0xFE,0x12,0x12,0x12,0x12,0xFF,0xFE,0x19,0x19,0x19,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF};
-unsigned char buffer[] ={0x7e,0xA0,0x07,0x03,0x41,0x93,0x5A,0x64,0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0xFF,0xAA,0xBB,0xFE,0x03,0x03,0x03,0x03,0xFF,0xAA,0xBB,0xFE,0x05,0x05,0x05,0x05,0xFF,0xAA,0xBB, 0xFE,0x0B,0x0B,0x0B,0x0B,0xFF,0xFE,0x06,0x06,0x06,0x06,0xFF,0xAA,0xBB,0xFE,0x07,0x07,0x07,0x07,0xFF,0xAA,0xBB,0xFE,0x0c,0x0c,0x0c,0x0c,0xff,0xAA,0xBB,0xFE,0x0F,0x0F,0x0F,0x0F,0xFF,0xFE,0x13,0x13,0x13,0x13,0xFF,0xFE,0x14,0x14,0x14,0x14,0xFF,0xFE,0x11,0x11,0x11,0x11,0xFF,0xFE,0x12,0x12,0x12,0x12,0xFF,0xFE,0x19,0x19,0x19,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF};
+unsigned char g_rxBuffer[] ={0x7e,0xA0,0x07,0x03,0x41,0x93,0x5A,0x64,0x7E,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0xFF,0xAA,0xBB,0xFE,0x03,0x03,0x03,0x03,0xFF,0xAA,0xBB,0xFE,0x05,0x05,0x05,0x05,0xFF,0xAA,0xBB, 0xFE,0x0B,0x0B,0x0B,0x0B,0xFF,0xFE,0x06,0x06,0x06,0x06,0xFF,0xAA,0xBB,0xFE,0x07,0x07,0x07,0x07,0xFF,0xAA,0xBB,0xFE,0x0c,0x0c,0x0c,0x0c,0xff,0xAA,0xBB,0xFE,0x0F,0x0F,0x0F,0x0F,0xFF,0xFE,0x13,0x13,0x13,0x13,0xFF,0xFE,0x14,0x14,0x14,0x14,0xFF,0xFE,0x11,0x11,0x11,0x11,0xFF,0xFE,0x12,0x12,0x12,0x12,0xFF,0xFE,0x19,0x19,0x19,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF,0x19,0xFF,0xFE,0x15,0x15,0x15,0x15,0xFF,0xFE,0x16,0x16,0x16,0x16,0xFF,0xFE,0x17,0x17,0x17,0x17,0xFF};
 unsigned char llssecret[16];
 
 unsigned char rrr_c=0, rrr_c1=0, rrr_s=0, sss_c=0, sss_c1=0, sss_s=0;
@@ -435,7 +434,7 @@ int ReadInstantData(void)
 	else
 		result = 0;
 
-	Serialno = (long)((long)buffer[16]*65536*256 + (long)buffer[17]*65536 + (long)buffer[18]*256 + (long)buffer[19]);
+	Serialno = (long)((long) g_rxBuffer[16] * 65536 * 256 + (long)g_rxBuffer[17]*65536 + (long)g_rxBuffer[18]*256 + (long)g_rxBuffer[19]);
 
 	digit = countDigits(Serialno,8);
 
@@ -464,7 +463,7 @@ int ReadInstantData(void)
 	else
 		result = 0;
 
-	FileName[6] = buffer[17];
+	FileName[6] = g_rxBuffer[17];
 	FileName[0] = '\\';
 	FileName[1] = 'D';
 	FileName[2] = 'L';
@@ -587,30 +586,22 @@ int SNRM(void)
 	SendBuffer[1] = 0xa0;
 	SendBuffer[2] = 0x07;
 	SendBuffer[3] = 0x03;
-	SendBuffer[4] = 0x41;
+	SendBuffer[4] = 0x61;
 	SendBuffer[5] = 0x93;
-	SendBuffer[6] = 0x00;
-	SendBuffer[7] = 0x00;
+	SendBuffer[6] = 0x69;
+	SendBuffer[7] = 0x47;
 	SendBuffer[8] = 0x7e;
-	fcs(SendBuffer+1, 5, 1);
+	//jena fcs(SendBuffer + 1, 5, 1);
 	kt_libUART_SendData(g_portNo, SendBuffer, 9);
 
-	delay(500);
+	delay(1000);
 	g_intFlg = 0;
-
-	while((g_intFlg == 0) && (time2 < 68265))
-		time2++;
-	if(time2>=68265)
-	{
-		errFlg = 1;
-		return 0;
-	}
-
-	Read(buffer);
-/*	for(int i=0;i<buffer[2]+2;i++)
-		printf("%02x ",buffer[i]);
+	//Read(g_rxBuffer);
+/*	for(int i=0;i<g_rxBuffer[2]+2;i++)
+		printf("%02x ",g_rxBuffer[i]);
 	printf("\n");
-*/	if(buffer[5] == 0x73)
+*/
+	if(g_rxBuffer[5] == 0x73)
 		return 1;
 	else
 		return 0;
@@ -706,12 +697,12 @@ int AARQ(void)
 		errFlg=1;
 		return 0;
 	}
-	Read(buffer);
-/*	for(int i=0;i<buffer[2]+2;i++)
-		printf("%02x ",buffer[i]);
-*/	if(buffer[28] == 0x00)
+	Read(g_rxBuffer);
+/*	for(int i=0;i<g_rxBuffer[2]+2;i++)
+		printf("%02x ",g_rxBuffer[i]);
+*/	if(g_rxBuffer[28] == 0x00)
 	{
-		//jena FrameType(buffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
+		//jena FrameType(g_rxBuffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
 		return 1;
 	}
 	else
@@ -746,12 +737,12 @@ int DISC(void)
 		return 0;
 	}
 
-	Read(buffer);
+	Read(g_rxBuffer);
 
-//	for(int i=0;i<buffer[2]+2;i++)
-//		printf("%02x ",buffer[i]);
+//	for(int i=0;i<g_rxBuffer[2]+2;i++)
+//		printf("%02x ",g_rxBuffer[i]);
 	//printf("\nDISC");
-	if(buffer[5] == 0x73)
+	if(g_rxBuffer[5] == 0x73)
 		return 1;
 	else
 		return 0;
@@ -911,41 +902,41 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 		return 0;
 	}
 
-	Read(buffer);
+	Read(g_rxBuffer);
 
 	fprintf(fp,"\n");
 	for(counter=16;counter<=21;counter++)
 		fprintf(fp,"%02X",SendBuffer[counter]);
 	fprintf(fp," %02X ",SendBuffer[22]);
 
-	//jena FrameType(buffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
+	//jena FrameType(g_rxBuffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
 
-	if (/*bAckRec == true &&*/ buffer[11] == 0xC4 && buffer[12] == 0x02)
+	if (/*bAckRec == true &&*/ g_rxBuffer[11] == 0xC4 && g_rxBuffer[12] == 0x02)
 	{
-		datablockno = (unsigned long) (buffer[15]*0 +((unsigned long)buffer[16])*65536 +((unsigned long)buffer[17])*256 + buffer[18]);
-		moreblock = ! buffer[14];
+		datablockno = (unsigned long) (g_rxBuffer[15]*0 +((unsigned long)g_rxBuffer[16])*65536 +((unsigned long)g_rxBuffer[17])*256 + g_rxBuffer[18]);
+		moreblock = ! g_rxBuffer[14];
 	}
 
-	if (/*bAckRec == true && */buffer[1] == 0xA0)
+	if (/*bAckRec == true && */g_rxBuffer[1] == 0xA0)
 	{
-		for(counter=15;counter<buffer[2]-1;counter++)
-			fprintf(fp,"%02X",buffer[counter]);
+		for(counter=15;counter<g_rxBuffer[2]-1;counter++)
+			fprintf(fp,"%02X",g_rxBuffer[counter]);
 		return 1;
 	}
 /*	else if (bAckRec == false)
 		return false;*/
 	if (moreblock == 1)
 	{
-		for(counter=23;counter<buffer[2]-1;counter++)
-			fprintf(fp,"%02X",buffer[counter]);
+		for(counter=23;counter<g_rxBuffer[2]-1;counter++)
+			fprintf(fp,"%02X",g_rxBuffer[counter]);
 	}
 	else
 	{
-		for(counter=15;counter<buffer[2]-1;counter++)
-			fprintf(fp,"%02X",buffer[counter]);
+		for(counter=15;counter<g_rxBuffer[2]-1;counter++)
+			fprintf(fp,"%02X",g_rxBuffer[counter]);
 	}
 
-	while (buffer[1] == 0xA8)
+	while (g_rxBuffer[1] == 0xA8)
 	{
 		ClearPacket();
 
@@ -973,22 +964,22 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 			errFlg=1;
 			return 0;
 		}
-		Read(buffer);
+		Read(g_rxBuffer);
 
-		//jena FrameType(buffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
+		//jena FrameType(g_rxBuffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
 
-		if (/*bAckRec == true && */buffer[1] == 0xA0)
+		if (/*bAckRec == true && */g_rxBuffer[1] == 0xA0)
 		{
-			for(counter=8;counter<buffer[2]-1;counter++)
-				fprintf(fp,"%02X",buffer[counter]);
+			for(counter=8;counter<g_rxBuffer[2]-1;counter++)
+				fprintf(fp,"%02X",g_rxBuffer[counter]);
 			break;
 		}
 		/*else if (bAckRec == false)
 			return false;*/
-		if (buffer[1] == 0xA8)
+		if (g_rxBuffer[1] == 0xA8)
 		{
-			for(counter=8;counter<buffer[2]-1;counter++)
-				fprintf(fp,"%02X",buffer[counter]);
+			for(counter=8;counter<g_rxBuffer[2]-1;counter++)
+				fprintf(fp,"%02X",g_rxBuffer[counter]);
 		}
 	}//While(0xA8)
 	while (moreblock)
@@ -1032,48 +1023,48 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 			errFlg=1;
 			return 0;
 		}
-		Read(buffer);
+		Read(g_rxBuffer);
 
-		//jena FrameType(buffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
+		//jena FrameType(g_rxBuffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
 
-		if (/*bAckRec == true &&*/ buffer[11] == 0xC4 && buffer[12] == 0x02)
+		if (/*bAckRec == true &&*/ g_rxBuffer[11] == 0xC4 && g_rxBuffer[12] == 0x02)
 		{
-			datablockno = (unsigned long) (buffer[15]*0 +((unsigned long)buffer[16])*65536 +((unsigned long)buffer[17])*256 + buffer[18]);
-			moreblock = ! buffer[14];
+			datablockno = (unsigned long) (g_rxBuffer[15]*0 +((unsigned long)g_rxBuffer[16])*65536 +((unsigned long)g_rxBuffer[17])*256 + g_rxBuffer[18]);
+			moreblock = ! g_rxBuffer[14];
 		}
 
-		if (/*bAckRec == true &&*/ buffer[1] == 0xA0)
+		if (/*bAckRec == true &&*/ g_rxBuffer[1] == 0xA0)
 		{
 			if (moreblock == 1)
-//				for (i = 23; i < buffer[2] - 1; i++)
-//					temp += buffer[i].ToString("X2");
-				for(counter=23;counter<buffer[2]-1;counter++)
-					fprintf(fp,"%02X",buffer[counter]);
+//				for (i = 23; i < g_rxBuffer[2] - 1; i++)
+//					temp += g_rxBuffer[i].ToString("X2");
+				for(counter=23;counter<g_rxBuffer[2]-1;counter++)
+					fprintf(fp,"%02X",g_rxBuffer[counter]);
 			else
-//				for (i = 21; i < buffer[2] - 1; i++)
-//					temp += buffer[i].ToString("X2");
-				for(counter=21;counter<buffer[2]-1;counter++)
-					fprintf(fp,"%02X",buffer[counter]);
+//				for (i = 21; i < g_rxBuffer[2] - 1; i++)
+//					temp += g_rxBuffer[i].ToString("X2");
+				for(counter=21;counter<g_rxBuffer[2]-1;counter++)
+					fprintf(fp,"%02X",g_rxBuffer[counter]);
 		}
-		if (/*bAckRec == true && */buffer[1] == 0xA8)
+		if (/*bAckRec == true && */g_rxBuffer[1] == 0xA8)
 		{
 			if (moreblock == 1)
-//				for (i = 23; i < buffer[2] - 1; i++)
-//					temp += buffer[i].ToString("X2");
-				for(counter=23;counter<buffer[2]-1;counter++)
-					fprintf(fp,"%02X",buffer[counter]);
+//				for (i = 23; i < g_rxBuffer[2] - 1; i++)
+//					temp += g_rxBuffer[i].ToString("X2");
+				for(counter=23;counter<g_rxBuffer[2]-1;counter++)
+					fprintf(fp,"%02X",g_rxBuffer[counter]);
 			else
 			{
-				if(buffer[20] == 0x81)
-//					for (i = 22; i < buffer[2] - 1; i++)
-//						temp += buffer[i].ToString("X2");
-					for(counter=22;counter<buffer[2]-1;counter++)
-						fprintf(fp,"%02X",buffer[counter]);
+				if(g_rxBuffer[20] == 0x81)
+//					for (i = 22; i < g_rxBuffer[2] - 1; i++)
+//						temp += g_rxBuffer[i].ToString("X2");
+					for(counter=22;counter<g_rxBuffer[2]-1;counter++)
+						fprintf(fp,"%02X",g_rxBuffer[counter]);
 				else
-//					for (i = 23; i < buffer[2] - 1; i++)
-//						temp += buffer[i].ToString("X2");
-					for(counter=23;counter<buffer[2]-1;counter++)
-						fprintf(fp,"%02X",buffer[counter]);
+//					for (i = 23; i < g_rxBuffer[2] - 1; i++)
+//						temp += g_rxBuffer[i].ToString("X2");
+					for(counter=23;counter<g_rxBuffer[2]-1;counter++)
+						fprintf(fp,"%02X",g_rxBuffer[counter]);
 			}
 
 			//break;
@@ -1082,7 +1073,7 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 			return false;
 */
 
-		while (buffer[1] == 0xA8)
+		while (g_rxBuffer[1] == 0xA8)
 		{
 			ClearPacket();
 
@@ -1110,16 +1101,16 @@ int GetRequest(unsigned char classID, unsigned char Obis_a, unsigned char Obis_b
 				errFlg=1;
 				return 0;
 			}
-			Read(buffer);
+			Read(g_rxBuffer);
 
-			//jena FrameType(buffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
+			//jena FrameType(g_rxBuffer, rrr_c, rrr_c1, rrr_s, sss_c, sss_c1, sss_s);
 
 			if (1==1/*bAckRec == true*/)
 			{
-//				for (i = 8; i < buffer[2] - 1; i++)
-//					temp += buffer[i].ToString("X2");
-				for(counter=8;counter<buffer[2]-1;counter++)
-					fprintf(fp,"%02X",buffer[counter]);
+//				for (i = 8; i < g_rxBuffer[2] - 1; i++)
+//					temp += g_rxBuffer[i].ToString("X2");
+				for(counter=8;counter<g_rxBuffer[2]-1;counter++)
+					fprintf(fp,"%02X",g_rxBuffer[counter]);
 			}
 //			else if (bAckRec == false)
 //				return false;
@@ -1137,7 +1128,7 @@ void ClearPacket(void)
 {
 	head = tail = count = intFlg = 0;//errFlg=0;
 	memset(SendBuffer,255,sizeof SendBuffer);
-	memset(buffer,255,sizeof buffer);
+	memset(g_rxBuffer,255,sizeof g_rxBuffer);
 }
 
 int countDigits(long inteiro,int max)
@@ -1296,6 +1287,10 @@ int selData(void)
 			fprintf(fp,"\nTYPEA");
 
 		Result = SNRM();
+
+		delay(1000);
+		return(0);	//jena
+
 		if(Result == 1)
 		{
 			Result =0;
