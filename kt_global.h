@@ -2,6 +2,12 @@
 //#ifndef KT_GLOBAL_H_
 //#define KT_GLOBAL_H_
 //================================================================================
+#include "kt_typedef.h"
+
+
+extern uint8_t g_portNo;
+
+
 extern unsigned char INTR;
 extern unsigned int PORT;
 extern unsigned int PIC;

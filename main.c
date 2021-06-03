@@ -17,18 +17,25 @@ Revisions:    3.0.0  ##/##/2010 First release
 #include <math.h>
 #include <stdlib.h>
 #include "functh.h"
-#include "kt_misc.h"
+#include "kt_misc_func.h"
 #include "kt_global.h"
+#include "kt_libUART.h"
 
+//======================================================================================
 int main(void)
 {
 	printf("\n DAKSH MRI 3.0.0\n ");
 	delay(1000);
 
-	//open Port
-	commPort();
 	memset(pktInfo,0,sizeof pktInfo);
 	memset(RxDt,0,sizeof RxDt);
+
+	//com port open
+	g_portNo = 16;
+	kt_libUART_Open(g_portNo, 9600);
+
+
 	selData();
-	printf("\n ");
+
+	printf("Execution completed.\n ");
 }

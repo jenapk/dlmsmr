@@ -5,6 +5,10 @@
  *      Author: pkjena
  */
 
+#include "kt_typedef.h"
+
+uint8_t g_portNo;
+
 unsigned char INTR;
 unsigned int PORT;
 unsigned int PIC;
