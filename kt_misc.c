@@ -5,9 +5,9 @@
  *      Author: pkjena
  */
 
+#include <unistd.h>
 
 void delay(unsigned int a_msDely)
 {
-
-
+	usleep(a_msDely * 1000);
 }
