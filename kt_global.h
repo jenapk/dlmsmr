@@ -25,6 +25,7 @@ extern unsigned int n, intFlg;
 extern int errFlg,lsFcnt,snFlg;
 extern int type;
 
+extern const uint16_t fcstab[];
 //================================================================================
 //#endif //KT_GLOBAL_H_
 //================================================================================

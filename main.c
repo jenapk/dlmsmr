@@ -52,7 +52,7 @@ int main(void)
 
 	printf("Thread (UART) created \n");
 
-	l_iRetVal = pthread_create(&fg_thdApp, NULL, selData, NULL);
+	l_iRetVal = pthread_create(&fg_thdApp, NULL, kt_appProcess, NULL);
 	if(l_iRetVal != 0)
 	{
 		printf("Thread (App) creation failed.\n");
@@ -63,19 +63,8 @@ int main(void)
 
 
 	//join threads
-	pthread_join(fg_thdUART, NULL);
 	pthread_join(fg_thdApp, NULL);
-
-	//start data downloading
-	//selData();
-
-	//while(1)
-	//{
-	//	x++;
-	//	usleep(1000);
-	//}
-
-
+	pthread_join(fg_thdUART, NULL);
 
 	printf("\nExecution completed.\n ");
 }

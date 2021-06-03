@@ -10,6 +10,21 @@
 //=============================================================================================================
 #include "kt_typedef.h"
 
+
+typedef enum
+{
+	APP_STATE_INIT,
+	APP_STATE_IDLE,
+	APP_STATE_NEXT,
+	APP_STATE_ANALYZE
+}en_appState;
+
+
+static void dlmsReceiveISR(uint8_t a_Byte);
+void kt_appInit(void);
+void kt_appProcess(void);
+
+//------------------------------------------------------------
 int SNRM(void);
 int AARQ(void);
 int DISC(void);
