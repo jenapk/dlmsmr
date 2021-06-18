@@ -13,8 +13,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-//typedef unsigned int  uint16_t;
-//typedef unsigned char uint8_t;
+
 
 //===================================================================================================
 #endif /* _KT_TYPEDEF_H_ */

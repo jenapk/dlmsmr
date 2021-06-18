@@ -4,8 +4,15 @@
 #define _KT_ANALYZE_H_
 //=================================================================================================
 
-void kt_appAnalyze(void);
+typedef struct
+{
+	uint8_t Format;
+	uint8_t Segmented;
+	uint16_t Length;
+}kt_st_frameFormat;
 
+void kt_appAnalyze(void);
+void kt_appGetFrameFormat(void);
 
 
 

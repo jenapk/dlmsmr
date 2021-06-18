@@ -180,13 +180,15 @@ uint16_t kt_libUART_SendData(uint16_t a_PortNo, uint8_t *a_pData, uint16_t a_Siz
 
 	fprintf(stderr, "\n---->"); 	//outward symbol
 
-#include <stdint.h>
 	for(l_Count = 0x00; l_Count < a_Size; l_Count++)
 	{
 		fprintf(stderr,"%02X ", *(a_pData + l_Count));
 	}
 
 	fprintf(stderr," - Sent\n");
+
+	//for receiving
+	fprintf(stderr, "<----"); 	//inward symbol
 
 	return(write(fg_PortList[a_PortNo], a_pData, a_Size));
 }

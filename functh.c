@@ -1445,7 +1445,7 @@ static void dlmsReceiveISR(uint8_t a_Byte)
 	{
 		if(fg_rxIndex >= g_rxBuffer[2] + 2)
 		{
-			printf("\nComplete frame received.\n");
+			//printf("\nComplete frame received.\n");
 			fg_appState = APP_STATE_ANALYZE;
 		}
 	}
