@@ -9,6 +9,7 @@
 #include "functh.h"
 #include "kt_global.h"
 #include "kt_libUART.h"
+#include "kt_analyze.h"
 
 #define PPPINITFCS16 0xffff /*initial FCS value*/
 #define PPPGOODFCS16 0xf0b8 /*Good final FCS value*/
@@ -38,7 +39,7 @@ unsigned char rrr_c=0, rrr_c1=0, rrr_s=0, sss_c=0, sss_c1=0, sss_s=0;
 en_appState fg_appState;
 int (*fpApp[10])(void) = {SNRM, AARQ, 0, 0, 0, 0, 0, 0, 0, 0};
 
-//===================================================================================
+//=================================================================================================
 void kt_appStateMachine(void)
 {
 
@@ -59,12 +60,14 @@ void kt_appStateMachine(void)
 			break;
 		//---------------------------------
 		case APP_STATE_ANALYZE:
-			printf("Frame Received\n");
-			fg_appState = APP_STATE_IDLE;
+			kt_appAnalyze();
 			break;
 	}
 }
 
+
+
+//=================================================================================================
 void kt_appProcess(void)
 {
 	while(1)
@@ -73,7 +76,20 @@ void kt_appProcess(void)
 	}
 }
 
+//=================================================================================================
+//executes next state
+void kt_appSetStateNext(void)
+{
+	fg_appState = APP_STATE_NEXT;
+}
 
+//=================================================================================================
+void kt_appSetStateIdle(void)
+{
+	fg_appState = APP_STATE_IDLE;
+}
+
+//=================================================================================================
 void ErrPrt(int x, int y, char *str1)
 {
 	printf("%s", str1);
@@ -578,6 +594,8 @@ int fcs(unsigned char *cp, int length, int flag)
 
 }
 
+//=========================================================================================
+//snrm packet request
 int SNRM(void)
 {
 	ClearPacket();
@@ -684,9 +702,6 @@ int AARQ(void)
 
 	//SendPkt(c+3);
 	kt_libUART_SendData(g_portNo, g_txBuffer, c+3);
-
-	delay(500);
-
 	while((intFlg == 0) && (time2 < 655350))   //68265 //655350
 		time2++;
 	if(time2>=655350)
@@ -1416,6 +1431,9 @@ int Read(unsigned char *RxDt)
 	return 1;
 }
 
+
+//=================================================================================================
+//routine called while a single byte received from UART (pollig mode)
 static void dlmsReceiveISR(uint8_t a_Byte)
 {
 	printf("%02X ", a_Byte);

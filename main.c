@@ -32,8 +32,9 @@ int main(void)
 
 {
 	int l_iRetVal;
-
-	printf("\n DAKSH MRI 3.0.0\n ");
+	printf("\n================================\n");
+	printf(  "KT DLMS Client Application 0.9.0\n");
+	printf("================================\n");
 	delay(1000);
 
 	memset(pktInfo,0,sizeof pktInfo);

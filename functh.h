@@ -23,6 +23,7 @@ typedef enum
 static void dlmsReceiveISR(uint8_t a_Byte);
 void kt_appInit(void);
 void kt_appProcess(void);
+void kt_appAnalyze(void);
 
 //------------------------------------------------------------
 int SNRM(void);
@@ -55,6 +56,8 @@ int selScr(void);
 int selScrSelected(void);
 /*	void testScr();  */
 
+void kt_appSetNextState(void);
+void kt_appSetStateIdle(void);
 //=============================================================================================================
 #endif /* FUNCTH_H_ */
 //=============================================================================================================
